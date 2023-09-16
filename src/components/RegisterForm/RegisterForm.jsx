@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
 
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { selectError, selectIsLoggedIn } from 'redux/auth/selectors';
 import { toast } from 'react-toastify';
 
@@ -57,7 +57,7 @@ export const RegisterForm = () => {
     //   toast.error('User with that email or password is already exist');
     //   return;
     // }
-    console.log(isError);
+    console.log(isLoggedIn);
     // navigate('/');
 
     // form.reset();
