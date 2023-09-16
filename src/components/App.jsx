@@ -1,45 +1,57 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import Alert from 'react-bootstrap/Alert';
-import { ContactForm } from './ContactForm/ContactForm';
-import { ContactList } from './ContactList/ContactList';
-import { Filter } from './Filter/Filter';
-import { Container, NotFoundAlert } from './App.styled';
+// import Alert from 'react-bootstrap/Alert';
+import { Route, Routes } from 'react-router-dom';
+// import { ContactForm } from './ContactForm/ContactForm';
+// import { ContactList } from './ContactList/ContactList';
+// import { Filter } from './Filter/Filter';
+// import { Container, NotFoundAlert } from './App.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import { fetchContactsThunk } from 'redux/thunk';
-import { getVisibleContacts, selectError } from 'redux/selectors';
+import { lazy, useEffect } from 'react';
+// import { fetchContactsThunk } from 'redux/thunk';
+// import { getVisibleContacts, selectError } from 'redux/selectors';
+import PublicRoute from './PublicRoute';
+import { refreshUser } from 'redux/auth/operations';
+import PrivateRoute from './PrivateRoute';
+import { selectIsRefreshing, selectToken } from 'redux/auth/selectors';
 
+export function App() {
+  const LoginPage = lazy(() => import('./Pages/Login'));
+  const RegisterPage = lazy(() => import('./Pages/Register'));
+  const HomePage = lazy(() => import('./Pages/Home'));
 
-export function App () {  
-  const error = useSelector(selectError)
-  const contactsList = useSelector(getVisibleContacts)
+  // const error = useSelector(selectError)
+  // const contactsList = useSelector(getVisibleContacts)
+  const token = useSelector(selectToken)
+  const isRefreshing = useSelector(selectIsRefreshing)
 
-  const dispatch = useDispatch()
-  useEffect(()=>{
-    dispatch(fetchContactsThunk())
-  }, [dispatch])
-  
-  // const findContact = () =>{
-  //   return contacts.filter((contact) => contact?.name.toLocaleLowerCase().includes(filter)
-  // )}
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(refreshUser());
+    console.log(token)
+  }, [dispatch]);
 
-  if(error){
-    return (<Alert variant='danger'>
-    This is a error alert— something wrong!
-  </Alert>)
-  }
+  // if(error){
+  //   return (<Alert variant='danger'>
+  //   This is a error alert— something wrong!
+  // </Alert>)
+  // }
 
-    return (
-      <Container>
-        <h1>Phonebook</h1>
-        <ContactForm/>
+  return isRefreshing ? (
+    <b>Refreshing user...</b>
+  ) :  (
+    <Routes>
+      <Route element={<PublicRoute redirectTo="/"/>}>
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+      </Route>
 
-        <h2>Contacts</h2>
-        <Filter/>
-        { contactsList.length ? <ContactList />
-        : (<NotFoundAlert variant='dark'>No matches found!</NotFoundAlert>)} 
-      </Container>
-    );
+      <Route element={<PrivateRoute redirectTo="/login" />}>
+        <Route path="/" element={<HomePage/>}>
+          {/* <Route path="favorites" element={<FavoritesScreen />} /> */}
+        </Route>
+      </Route>
 
+      {/* <Route path="*" element={<NotFoundScreen />} />  */}
+    </Routes>
+  );
 }
-
