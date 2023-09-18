@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import contactsReducer from './slice';
+import contactsReducer from './contacts/slice';
 import { configureStore } from '@reduxjs/toolkit';
 // import { contactsApi } from 'api/fetch';
 // import { setupListeners } from '@reduxjs/toolkit/query'

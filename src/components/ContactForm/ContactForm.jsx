@@ -7,15 +7,15 @@ import {
 import Spinner from 'react-bootstrap/Spinner';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector} from 'react-redux';
-import { addContactThunk } from 'redux/thunk';
-import { selectContacts, selectIsLoading } from 'redux/selectors';
+import { selectContacts, selectIsLoadingContacts } from 'redux/contacts/selectors';
+import { addContact } from 'redux/contacts/operations';
 
 
 export function ContactForm() {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const contacts = useSelector(selectContacts)
-  const isLoading = useSelector(selectIsLoading)
+  const isLoading = useSelector(selectIsLoadingContacts)
 
   const dispatch = useDispatch();
 
@@ -45,7 +45,7 @@ export function ContactForm() {
       }
       // addContact(newContact)
     dispatch(
-      addContactThunk(newContact)
+      addContact(newContact)
     );
     reset();
   };

@@ -7,13 +7,11 @@ import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
 
 import { NavLink } from 'react-router-dom';
-import { selectError, selectIsLoggedIn } from 'redux/auth/selectors';
+import { selectError} from 'redux/auth/selectors';
 import { toast } from 'react-toastify';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
-  // const navigate = useNavigate();
-  const isLoggedIn = useSelector(selectIsLoggedIn);
   const isError = useSelector(selectError);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -39,27 +37,17 @@ export const RegisterForm = () => {
     const newUser = { name, email, password };
     try {
       await dispatch(register(newUser));
-      if (isError) {
+      if(isError){
         toast.error('User with that email or password is already exist');
-        return;
+          return;
       }
-      toast.success('Register successfull');
-      // console.log('isError');
-      // toast.success('Register successfull');
+      if(!isError){
+        toast.success('Register successfull')
+        return
+      }
     } catch (error) {
       console.log(error);
     }
-    // if (isLoggedIn) {
-    //   return toast.success('Register successfull');
-    // }
-    // if (isError.includes('status code 400')) {
-    //   console.log(isError);
-    //   toast.error('User with that email or password is already exist');
-    //   return;
-    // }
-    console.log(isLoggedIn);
-    // navigate('/');
-
     // form.reset();
   };
 
