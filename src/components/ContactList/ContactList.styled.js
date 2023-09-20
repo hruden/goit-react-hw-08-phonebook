@@ -1,5 +1,10 @@
 import styled from 'styled-components';
 import Spinner from 'react-bootstrap/Spinner';
+import { IoMdContact } from 'react-icons/io';
+import { AiFillDelete } from 'react-icons/ai';
+import { MdFavorite } from 'react-icons/md';
+import { FaUserEdit } from 'react-icons/fa';
+
 
 export const  ContactsBook = styled.ul`
     display: flex;
@@ -23,13 +28,53 @@ export const ContactsItem = styled.li`
     }
 `
 export const DeleteContact = styled.button`
-    margin-left: auto;
+    border: none;
+    background-color: transparent;
     &:hover{
-        border-color: #DC143C;
-        background-color: #DC143C;
-        color: white;
+        color: #DC143C;
     }
 `
-export const DeleteSpinner = styled(Spinner)`
-    margin-left: auto;
+export const ContactIcon = styled(IoMdContact)`
+width: 25px;
+height: 25px;
+margin-right: 15px;
+`
+export const ContactName = styled.div`
+display: flex;
+gap: 15px;
+font-size: large;
+`
+export const Name = styled.p`
+display: block;
+`
+export const DeleteIcon = styled(AiFillDelete)`
+width: 25px;
+height: 25px;
+`
+export const MoreDitails = styled.div`
+display:flex;
+padding: 0 40px;
+justify-content: space-between;
+`
+export const EditBtn = styled.button`
+    border: none;
+    background-color: transparent;
+    &:hover{
+        color: #2281f5;
+    }
+`
+export const EditIcon = styled(FaUserEdit)`
+width: 25px;
+height: 25px;
+`
+export const FavoriteBtn = styled.button`
+    border: none;
+    background-color: transparent;
+    &:hover{
+        color: #d9cb04;
+    }
+`
+export const FavoriteIcon = styled(MdFavorite)`
+width: 25px;
+height: 25px;
 `

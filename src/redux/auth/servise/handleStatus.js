@@ -21,7 +21,7 @@ export const handleLogOut = state => {
 
 export const handleRefreshPending = state => {
   state.isRefreshing = true;
-  state.error = ''
+  // state.error = ''
 };
 export const handleRefreshfFulfilled = (state, action) => {
   state.user = action.payload;

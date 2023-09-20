@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import { logIn } from 'redux/auth/operations';
 
 import Button from 'react-bootstrap/Button';
@@ -7,12 +7,10 @@ import Card from 'react-bootstrap/Card';
 import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
-import { selectIsLoggedIn } from 'redux/auth/selectors';
+import { LoginFormStyled } from './LoginForm.styled';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
-  // const isError = useSelector(selectError);
-  const isLogedIn = useSelector(selectIsLoggedIn)
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -31,23 +29,19 @@ export const LoginForm = () => {
     const user = { email, password };
 
     try {
-      await dispatch(logIn(user));
-      if(isLogedIn === false){
-        toast.error('User with that email or password is does not exist');
-        reset();
-          return;
-      }
-      if(isLogedIn === true){
-        toast.success('Login successful')
-        return
-      }
+      await dispatch(logIn(user)).then(({ payload }) =>
+      payload.user
+        ? toast.success('Login successful')
+        : toast.error('User with that email or password is does not exist')
+    );
     } catch (error) {
       console.log(error);
-    }   
+    }
+    reset()   
   };
   return (
     <>
-      <Form onSubmit={handleSubmit}>
+      <LoginFormStyled onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control
@@ -74,7 +68,7 @@ export const LoginForm = () => {
         <Button variant="primary" type="submit">
           Log In
         </Button>
-      </Form>
+      </LoginFormStyled>
       <Card.Text>
         Not a member?
         <NavLink to="/register"> Sign up</NavLink>

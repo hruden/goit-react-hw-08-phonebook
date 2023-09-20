@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import { register } from 'redux/auth/operations';
 import { useState } from 'react';
 
@@ -7,12 +7,11 @@ import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
 
 import { NavLink } from 'react-router-dom';
-import { selectError} from 'redux/auth/selectors';
 import { toast } from 'react-toastify';
+import { RegisterFormStyled } from './RegisterForm.styled';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
-  const isError = useSelector(selectError);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -26,34 +25,34 @@ export const RegisterForm = () => {
   const passwordHandler = e => {
     setPassword(e.target.value.trim());
   };
-
+  const reset = () => {
+    setEmail('');
+    setPassword('');
+    setName('');
+  };
   const handleSubmit = async e => {
     e.preventDefault();
-    // const form = e.currentTarget;
     if (password.length <= 7) {
       toast.error('Password length must be 8 or more symbols');
       return;
     }
+
     const newUser = { name, email, password };
     try {
-      await dispatch(register(newUser));
-      if(isError){
-        toast.error('User with that email or password is already exist');
-          return;
-      }
-      if(!isError){
-        toast.success('Register successfull')
-        return
-      }
+      await dispatch(register(newUser)).then(({ payload }) =>
+        payload.user
+          ? toast.success('Register successfull')
+          : toast.error('User with that email or password is already exist')
+      );
     } catch (error) {
       console.log(error);
     }
-    // form.reset();
+    reset();
   };
 
   return (
     <>
-      <Form onSubmit={handleSubmit}>
+      <RegisterFormStyled onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Username</Form.Label>
           <Form.Control
@@ -77,7 +76,6 @@ export const RegisterForm = () => {
             required
           />
         </Form.Group>
-
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
           <Form.Control
@@ -92,7 +90,7 @@ export const RegisterForm = () => {
         <Button variant="primary" type="submit">
           Sing up
         </Button>
-      </Form>
+      </RegisterFormStyled>
       <Card.Text>
         Already have an account?
         <NavLink to="/login"> Log In</NavLink>

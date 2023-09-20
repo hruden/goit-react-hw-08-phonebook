@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux';
+// import { combineReducers } from 'redux';
 import contactsReducer from './contacts/slice';
 import { configureStore } from '@reduxjs/toolkit';
 // import { contactsApi } from 'api/fetch';
@@ -23,15 +23,17 @@ const persistConfig = {
   // whitelist: ['token'],
 };
 
-const rootReducer = combineReducers({
-  contactsBook: contactsReducer,
-  auth: authReducer,
+// const rootReducer = combineReducers({
+//   contactsBook: contactsReducer,
+//   auth: persistReducer(persistConfig, authReducer),
   // [contactsApi.reducerPath]: contactsApi.reducer,
-});
-const persistedReducer = persistReducer(persistConfig, rootReducer);
+// });
+// const persistedReducer = persistReducer(persistConfig, authReducer);
 
 export const store = configureStore({
-  reducer: persistedReducer,
+  reducer: {auth: persistReducer(persistConfig, authReducer),
+    contactsBook: contactsReducer
+  },
   // middleware: (getDefaultMiddleware) =>
   //   getDefaultMiddleware().concat(contactsApi.middleware),
   middleware: getDefaultMiddleware =>

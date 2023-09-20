@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { lazy, useEffect } from 'react';
 // import { fetchContactsThunk } from 'redux/thunk';
 // import { getVisibleContacts, selectError } from 'redux/selectors';
-import PublicRoute from './PublicRoute';
+import PublicRoute from './PublicRoute/PublicRoute';
 import { refreshUser } from 'redux/auth/operations';
 import PrivateRoute from './PrivateRoute';
 import { selectIsRefreshing, selectToken } from 'redux/auth/selectors';
