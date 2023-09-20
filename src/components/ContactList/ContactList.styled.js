@@ -1,32 +1,32 @@
 import styled from 'styled-components';
-import Spinner from 'react-bootstrap/Spinner';
+// import Spinner from 'react-bootstrap/Spinner';
 import { IoMdContact } from 'react-icons/io';
 import { AiFillDelete } from 'react-icons/ai';
 import { MdFavorite } from 'react-icons/md';
 import { FaUserEdit } from 'react-icons/fa';
 
 
-export const  ContactsBook = styled.ul`
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 15px 5px;
-    width: 400px;
-`
-export const ContactsItem = styled.li`
-    position: relative;
-    display: flex;
-    align-items: center;
-    &::before{
-        content: '';
-        width: 3px;
-        height: 3px;
-        border: 1px solid black;
-        border-radius: 50%;
-        background-color: black;
-        margin-right: 5px;
-    }
-`
+// export const  ContactsBook = styled.ul`
+//     display: flex;
+//     flex-direction: column;
+//     gap: 10px;
+//     padding: 15px 5px;
+//     width: 400px;
+// `
+// export const ContactsItem = styled.li`
+//     position: relative;
+//     display: flex;
+//     align-items: center;
+//     &::before{
+//         content: '';
+//         width: 3px;
+//         height: 3px;
+//         border: 1px solid black;
+//         border-radius: 50%;
+//         background-color: black;
+//         margin-right: 5px;
+//     }
+// `
 export const DeleteContact = styled.button`
     border: none;
     background-color: transparent;
