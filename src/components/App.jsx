@@ -12,22 +12,21 @@ import { lazy, useEffect } from 'react';
 import PublicRoute from './PublicRoute/PublicRoute';
 import { refreshUser } from 'redux/auth/operations';
 import PrivateRoute from './PrivateRoute';
-import { selectIsRefreshing, selectToken } from 'redux/auth/selectors';
+import { selectIsRefreshing} from 'redux/auth/selectors';
 
 export function App() {
   const LoginPage = lazy(() => import('./Pages/Login'));
   const RegisterPage = lazy(() => import('./Pages/Register'));
   const HomePage = lazy(() => import('./Pages/Home'));
+  const LayoutPage = lazy(() => import('./Layout/Layout'));
 
   // const error = useSelector(selectError)
   // const contactsList = useSelector(getVisibleContacts)
-  const token = useSelector(selectToken)
   const isRefreshing = useSelector(selectIsRefreshing)
 
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(refreshUser());
-    console.log(token)
   }, [dispatch]);
 
   // if(error){
@@ -46,7 +45,8 @@ export function App() {
       </Route>
 
       <Route element={<PrivateRoute redirectTo="/login" />}>
-        <Route path="/" element={<HomePage/>}>
+        <Route path="/" element={<LayoutPage/>}>
+          <Route index element = {<HomePage/>}/>
           {/* <Route path="favorites" element={<FavoritesPage />} /> */}
         </Route>
       </Route>

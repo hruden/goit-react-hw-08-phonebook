@@ -19,7 +19,7 @@ export const handleFulfilledDel = (state, { payload }) => {
 };
 export const handleFulfilledUpdate = (state, { payload }) => {
   handleFulfilled(state);
-  state.contacts = state.contacts.filter(el => el.id !== payload.id).push(payload)
+  state.contacts = state.contacts.filter(el => el.id !== payload.id).concat(payload)
 };
 export const handleRejected = (state, { payload }) => {
   state.isLoading = false;

@@ -44,7 +44,7 @@ export function EditForm(props) {
       return;
     }
     dispatch(updateContact(newContact));
-    toast.success('Login successful')
+    toast.warn('Contact change')
     props.onHide()
     reset();
   };
