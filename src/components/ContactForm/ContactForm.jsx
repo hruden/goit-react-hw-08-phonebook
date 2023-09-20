@@ -43,8 +43,9 @@ export function ContactForm(props) {
       toast.error(`${newContact.name} is already in contacts`);
       return reset();
     }
-    // addContact(newContact)
     dispatch(addContact(newContact));
+    toast.success(`${newContact.name} added successfully`)
+    props.onHide()
     reset();
   };
   const reset = () => {

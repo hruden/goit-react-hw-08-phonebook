@@ -47,11 +47,11 @@ export function App() {
 
       <Route element={<PrivateRoute redirectTo="/login" />}>
         <Route path="/" element={<HomePage/>}>
-          {/* <Route path="favorites" element={<FavoritesScreen />} /> */}
+          {/* <Route path="favorites" element={<FavoritesPage />} /> */}
         </Route>
       </Route>
 
-      {/* <Route path="*" element={<NotFoundScreen />} />  */}
+      {/* <Route path="*" element={<NotFoundPage />} />  */}
     </Routes>
   );
 }

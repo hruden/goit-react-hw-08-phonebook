@@ -29,6 +29,7 @@ export const ContactList = () => {
   const contactsList = useSelector(getVisibleContacts);
   const [modalShow, setModalShow] = useState(false);
 
+
   return (
     <Accordion defaultActiveKey="0">
       {contactsList.map(({ id, name, number }) => (
