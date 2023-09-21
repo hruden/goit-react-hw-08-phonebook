@@ -3,11 +3,16 @@ import Button from 'react-bootstrap/Button';
 import { UserMenu } from 'components/UserMenu/UserMenu';
 import { useState } from 'react';
 import { ContactForm } from 'components/ContactForm/ContactForm';
-import { AddContact, FavoriteIcon, Navigate } from './Header.styled';
+import { AddContact, Navigate } from './Header.styled';
+// import { NavLink} from 'react-router-dom';
 
 
 export const Header = () => {
     const [modalShow, setModalShow] = useState(false);
+    // const location = useLocation();
+    // const chooseLocation = () => { 
+    //   return location.pathname === '/favorites'? '/': '/favorites'
+    // }
 
   return (
     <>
@@ -18,9 +23,9 @@ export const Header = () => {
           </Button>
         </Navbar.Brand>
         <Navbar.Brand>
-          <Button variant="link">
-            <FavoriteIcon />
-          </Button>
+          {/* <Button variant="link">
+            <NavLink to={chooseLocation()}><FavoriteIcon /></NavLink>
+          </Button> */}
         </Navbar.Brand>
         <Navbar.Brand>
           <UserMenu />

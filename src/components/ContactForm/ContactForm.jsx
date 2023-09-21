@@ -14,6 +14,7 @@ import Form from 'react-bootstrap/Form';
 export function ContactForm(props) {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
+  // const [favorite, setFavorite] = useState(false);
   const contacts = useSelector(selectContacts);
   const isLoading = useSelector(selectIsLoadingContacts);
 
@@ -31,21 +32,25 @@ export function ContactForm(props) {
         return;
     }
   };
+  // const  handleChange = () => {
+	// 	setFavorite(!favorite);
+	// }
   const handleSubmit = e => {
     e.preventDefault();
     const newContact = {
       name: name,
       number: number,
-      // id: nanoid()
+      // favorite: favorite,
     };
+    console.log(newContact)
     const nameCheck = contacts.find(({ name }) => name === newContact.name);
     if (nameCheck) {
       toast.error(`${newContact.name} is already in contacts`);
       return reset();
     }
     dispatch(addContact(newContact));
-    toast.success(`${newContact.name} added successfully`)
-    props.onHide()
+    toast.success(`${newContact.name} added successfully`);
+    props.onHide();
     reset();
   };
   const reset = () => {
@@ -93,7 +98,13 @@ export function ContactForm(props) {
             />
           </Form.Group>
           {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
-            <Form.Check type="checkbox" label="Add this contact in favorite" />
+            <Form.Check // prettier-ignore
+              type="switch"
+              id="custom-switch"
+              label="Favorite"
+              checked={favorite}
+              onChange={handleChange}
+            />
           </Form.Group> */}
           <Button
             variant="primary"

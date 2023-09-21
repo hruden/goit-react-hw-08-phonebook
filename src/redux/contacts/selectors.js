@@ -13,3 +13,8 @@ export const getVisibleContacts = createSelector(
             .includes(filter.toLowerCase()))
     }
   )
+// export const getFavoriteContacts = createSelector(
+//   [selectContacts], (contacts) => {
+//     return contacts.filter(({favorite}) => favorite)
+//   }
+// )

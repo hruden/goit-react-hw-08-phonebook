@@ -22,6 +22,6 @@ export const ExitIcon = styled(ImExit)`
   width: 30px;
   height: 25px;
   &:hover {
-    fill: #d9cb04;
+    fill: #DC143C;
   }
-`;
+`

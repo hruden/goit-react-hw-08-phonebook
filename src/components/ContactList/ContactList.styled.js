@@ -2,7 +2,7 @@ import styled from 'styled-components';
 // import Spinner from 'react-bootstrap/Spinner';
 import { IoMdContact } from 'react-icons/io';
 import { AiFillDelete } from 'react-icons/ai';
-import { MdFavorite } from 'react-icons/md';
+// import { MdFavorite } from 'react-icons/md';
 import { FaUserEdit } from 'react-icons/fa';
 
 
@@ -53,8 +53,9 @@ height: 25px;
 `
 export const MoreDitails = styled.div`
 display:flex;
+gap: 100px;
 padding: 0 40px;
-justify-content: space-between;
+justify-content: center;
 `
 export const EditBtn = styled.button`
     border: none;
@@ -67,14 +68,14 @@ export const EditIcon = styled(FaUserEdit)`
 width: 25px;
 height: 25px;
 `
-export const FavoriteBtn = styled.button`
-    border: none;
-    background-color: transparent;
-    &:hover{
-        color: #d9cb04;
-    }
-`
-export const FavoriteIcon = styled(MdFavorite)`
-width: 25px;
-height: 25px;
-`
+// export const FavoriteBtn = styled.button`
+//     border: none;
+//     background-color: transparent;
+//     &:hover{
+//         color: #d9cb04;
+//     }
+// `
+// export const FavoriteIcon = styled(MdFavorite)`
+// width: 25px;
+// height: 25px;
+// `

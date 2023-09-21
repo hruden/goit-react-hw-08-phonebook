@@ -5,8 +5,8 @@ import {
   DeleteIcon,
   EditBtn,
   EditIcon,
-  FavoriteBtn,
-  FavoriteIcon,
+  // FavoriteBtn,
+  // FavoriteIcon,
   MoreDitails,
   Name,
 } from './ContactList.styled';
@@ -57,9 +57,9 @@ export const ContactList = () => {
               >
                 <EditIcon />
               </EditBtn>
-              <FavoriteBtn>
+              {/* <FavoriteBtn>
                 <FavoriteIcon />
-              </FavoriteBtn>
+              </FavoriteBtn> */}
               <DeleteContact
                 onClick={() => dispatch(deleteContact(id))}
                 disabled={isLoading ? true : false}
