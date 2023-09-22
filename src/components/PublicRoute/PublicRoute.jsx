@@ -5,7 +5,7 @@ import { selectToken } from 'redux/auth/selectors';
 import { Content, FormTitle } from './PublicRoute.styled';
 import { Vortex } from 'react-loader-spinner';
 
-const PublicRoute = ({ redirectTo = '/', resticted = 'false' }) => {
+const PublicRoute = ({ redirectTo = '/contacts', resticted = 'false' }) => {
   const token = useSelector(selectToken);
 
   const shouldRedirect = token && resticted;

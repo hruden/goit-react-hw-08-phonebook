@@ -21,6 +21,7 @@ export function App() {
   const RegisterPage = lazy(() => import('../Pages/Register'));
   const HomePage = lazy(() => import('../Pages/Home'));
   const LayoutPage = lazy(() => import('./Layout/Layout'));
+  const NotFoundPage = lazy(() => import('../Pages/NotFound'))
   // const FavoritesPage = lazy(() => import('./Pages/Favorite'))
 
   // const error = useSelector(selectError)
@@ -51,19 +52,19 @@ export function App() {
   />
 ) :  (
     <Routes>
-      <Route element={<PublicRoute redirectTo="/"/>}>
+      <Route element={<PublicRoute redirectTo="/contacts"/>}>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
       </Route>
 
       <Route element={<PrivateRoute redirectTo="/login" />}>
-        <Route path="/" element={<LayoutPage/>}>
+        <Route path="/contacts" element={<LayoutPage/>}>
           <Route index element = {<HomePage/>}/>
           {/* <Route path="favorites" element={<FavoritesPage />} /> */}
         </Route>
-      </Route>
+        <Route path="*" element={<NotFoundPage />} /> 
 
-      {/* <Route path="*" element={<NotFoundPage />} />  */}
+      </Route>
     </Routes>
   );
 }
