@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkreact_homework_template=self.webpackChunkreact_homework_template||[]).push([[6],{3006:function(e,t,n){n.r(t),n.d(t,{default:function(){return a}});var o=n(184);function a(){return(0,o.jsx)("div",{children:"Welcome to PhoneBook application. In this application you can create, edit, delete and save your contacts. Enjoy using it."})}}}]);
-//# sourceMappingURL=6.83b67a4f.chunk.js.map
