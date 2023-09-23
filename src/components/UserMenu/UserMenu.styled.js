@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import { ImExit } from 'react-icons/im';
+import { RiUserAddFill } from 'react-icons/ri';
+
 
 
 export const UserContainer = styled.div`
@@ -24,4 +26,11 @@ export const ExitIcon = styled(ImExit)`
   &:hover {
     fill: #DC143C;
   }
+`
+export const AddContact = styled(RiUserAddFill)`
+        width: 30px;
+        height: 25px;
+        &:hover{
+            fill: #d9cb04;
+        }
 `

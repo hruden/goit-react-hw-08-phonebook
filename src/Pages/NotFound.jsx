@@ -1,4 +1,4 @@
-import { Container } from 'components/Layout/Layout.styled';
+import { Container } from 'Layout/Layout.styled';
 import Alert from 'react-bootstrap/Alert';
 import { NavLink } from 'react-router-dom';
 

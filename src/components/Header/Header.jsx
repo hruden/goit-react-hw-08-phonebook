@@ -1,14 +1,16 @@
 import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
-import { UserMenu } from 'components/UserMenu/UserMenu';
 import { useState } from 'react';
-import { ContactForm } from 'components/ContactForm/ContactForm';
-import { AddContact, Navigate } from './Header.styled';
+import { Navigate } from './Header.styled';
+import { NavLink } from 'react-router-dom';
+import { UserMenu } from 'components/UserMenu/UserMenu';
+import { AuthNav } from 'components/AuthNav/AuthNav';
+import { selectToken } from 'redux/auth/selectors';
 // import { NavLink} from 'react-router-dom';
 
 
 export const Header = () => {
-    const [modalShow, setModalShow] = useState(false);
+    const token = useState(selectToken)
     // const location = useLocation();
     // const chooseLocation = () => { 
     //   return location.pathname === '/favorites'? '/': '/favorites'
@@ -17,21 +19,13 @@ export const Header = () => {
   return (
     <>
       <Navigate collapseOnSelect expand="lg" className="bg-body-tertiary">
-        <Navbar.Brand>
-          <Button variant="link" onClick={() => setModalShow(true)}>
-            <AddContact />
+      <Navbar.Brand>
+          <Button variant="link">
+            <NavLink to={'/'}>Home</NavLink>
           </Button>
         </Navbar.Brand>
-        <Navbar.Brand>
-          {/* <Button variant="link">
-            <NavLink to={chooseLocation()}><FavoriteIcon /></NavLink>
-          </Button> */}
-        </Navbar.Brand>
-        <Navbar.Brand>
-          <UserMenu />
-        </Navbar.Brand>
+        {token?<UserMenu/>:<AuthNav/>}
       </Navigate>
-      <ContactForm show={modalShow} onHide={() => setModalShow(false)} />
     </>
   );
 };
