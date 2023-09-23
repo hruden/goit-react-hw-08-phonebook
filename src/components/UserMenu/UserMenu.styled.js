@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { ImExit } from 'react-icons/im';
 import { RiUserAddFill } from 'react-icons/ri';
+import { MdFavorite } from 'react-icons/md';
+
 
 
 
@@ -10,6 +12,17 @@ export const UserContainer = styled.div`
   flex-wrap: wrap;
   justify-content: end;
   align-items: center;
+`;
+export const LinkContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex-wrap: wrap;
+  justify-content: start;
+  align-items: start;
+  @media screen and (min-width: 992px) {  
+    flex-direction: row;
+  }
 `;
 export const UserTitle = styled.p`
 display: block;
@@ -28,6 +41,13 @@ export const ExitIcon = styled(ImExit)`
   }
 `
 export const AddContact = styled(RiUserAddFill)`
+        width: 30px;
+        height: 25px;
+        &:hover{
+            fill: #d9cb04;
+        }
+`
+export const FavoriteIcon = styled(MdFavorite)`
         width: 30px;
         height: 25px;
         &:hover{

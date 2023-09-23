@@ -1,4 +1,4 @@
-import { useDispatch} from 'react-redux';
+import { useDispatch, useSelector} from 'react-redux';
 import { logIn } from 'redux/auth/operations';
 
 import Button from 'react-bootstrap/Button';
@@ -8,11 +8,14 @@ import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 import { LoginFormStyled } from './LoginForm.styled';
+import { selectIsLoading } from 'redux/auth/selectors';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const isLoading = useSelector(selectIsLoading);
+
 
   const emailHandler = e => {
     setEmail(e.target.value.trim());
@@ -65,7 +68,7 @@ export const LoginForm = () => {
             required
           />
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" disabled={isLoading ? true : false}>
           Log In
         </Button>
       </LoginFormStyled>

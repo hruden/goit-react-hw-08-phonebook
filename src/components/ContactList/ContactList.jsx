@@ -28,11 +28,13 @@ export const ContactList = () => {
   const isLoading = useSelector(selectIsLoadingContacts);
   const contactsList = useSelector(getVisibleContacts);
   const [modalShow, setModalShow] = useState(false);
-
+  const sortContactsList = contactsList.sort((a, b) => 
+    a.name.localeCompare(b.name)
+  );
 
   return (
     <Accordion defaultActiveKey="0">
-      {contactsList.map(({ id, name, number }) => (
+      {sortContactsList.map(({ id, name, number }) => (
         <Accordion.Item eventKey={id} key={id}>
           <EditForm
             show={modalShow}
@@ -52,7 +54,7 @@ export const ContactList = () => {
               <EditBtn
                 onClick={() => {
                   setModalShow(true);
-                  dispatch(electContactChange({ id, name, number }))
+                  dispatch(electContactChange({ id, name, number }));
                 }}
               >
                 <EditIcon />

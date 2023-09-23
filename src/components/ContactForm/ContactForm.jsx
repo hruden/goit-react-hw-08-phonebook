@@ -42,7 +42,6 @@ export function ContactForm(props) {
       number: number,
       // favorite: favorite,
     };
-    console.log(newContact)
     const nameCheck = contacts.find(({ name }) => name === newContact.name);
     if (nameCheck) {
       toast.error(`${newContact.name} is already in contacts`);

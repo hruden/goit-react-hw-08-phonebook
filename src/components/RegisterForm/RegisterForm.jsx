@@ -1,4 +1,4 @@
-import { useDispatch} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { register } from 'redux/auth/operations';
 import { useState } from 'react';
 
@@ -9,12 +9,14 @@ import Card from 'react-bootstrap/Card';
 import { NavLink } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { RegisterFormStyled } from './RegisterForm.styled';
+import { selectIsLoading } from 'redux/auth/selectors';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const isLoading = useSelector(selectIsLoading);
 
   const nameHandler = e => {
     setName(e.target.value.trim());
@@ -87,7 +89,11 @@ export const RegisterForm = () => {
             required
           />
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <Button
+          variant="primary"
+          type="submit"
+          disabled={isLoading ? true : false}
+        >
           Sing up
         </Button>
       </RegisterFormStyled>
