@@ -1,7 +1,6 @@
 import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
-import { Navigate } from './Header.styled';
-import { NavLink } from 'react-router-dom';
+import { LinkHome, Navigate } from './Header.styled';
 import { UserMenu } from 'components/UserMenu/UserMenu';
 import { AuthNav } from 'components/AuthNav/AuthNav';
 import { selectIsLoading, selectIsLoggedIn } from 'redux/auth/selectors';
@@ -23,7 +22,7 @@ export const Header = () => {
       <Navigate collapseOnSelect expand="lg" className="bg-body-tertiary">
         <Navbar.Brand>
           <Button variant="link" disabled={isLoading ? true : false}>
-            <NavLink to={'/'}>Home</NavLink>
+            <LinkHome to={'/'}>Home</LinkHome>
           </Button>
         </Navbar.Brand>
         {LoggedIn ? <UserMenu /> : <AuthNav />}

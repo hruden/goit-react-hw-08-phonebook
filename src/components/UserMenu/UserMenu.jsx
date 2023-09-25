@@ -5,6 +5,7 @@ import {
   AddContact,
   ExitIcon,
   FavoriteIcon,
+  FavoriteLink,
   LinkContainer,
   UserContainer,
   UserTitle,
@@ -14,14 +15,18 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import { ContactForm } from 'components/ContactForm/ContactForm';
 import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+// import { useLocation } from 'react-router-dom';
 
 export function UserMenu() {
   const { name } = useSelector(selectUser);
   const [modalShow, setModalShow] = useState(false);
   const isLoading = useSelector(selectIsLoading);
+  // const location = useLocation();
 
   const dispatch = useDispatch();
+
+  // const changePage = () =>
+  //   location.pathname === '/contacts' ? '/' : '/contacts';
 
   return (
     <>
@@ -38,9 +43,9 @@ export function UserMenu() {
               <AddContact />
             </Button>
             <Button variant="link" disabled={isLoading ? true : false}>
-              <NavLink to={'/contacts'}>
+              <FavoriteLink to={'/contacts'}>
                 <FavoriteIcon />
-              </NavLink>
+              </FavoriteLink>
             </Button>
           </LinkContainer>
         </Nav>

@@ -1,16 +1,16 @@
 import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
-import { NavLink } from 'react-router-dom';
+import { LinkRegistered } from './AuthNav.styled';
 
 export const AuthNav = () => {
   return (
     <>
       <Navbar.Brand>
         <Button variant="link">
-          <NavLink to={'/login'}>Login</NavLink>
+          <LinkRegistered to={'/login'}>Login</LinkRegistered>
         </Button>
         <Button variant="link">
-          <NavLink to={'/register'}>Register</NavLink>
+          <LinkRegistered to={'/register'}>Register</LinkRegistered>
         </Button>
       </Navbar.Brand>
     </>
