@@ -3,7 +3,8 @@ import { useSelector } from 'react-redux';
 import { Navigate, Outlet } from 'react-router-dom';
 import { selectToken } from 'redux/auth/selectors';
 import { Content, FormTitle } from './PublicRoute.styled';
-import { Vortex } from 'react-loader-spinner';
+// import { Vortex } from 'react-loader-spinner';
+import Loader from 'components/Loader/Loader';
 
 const PublicRoute = ({ redirectTo = '/contacts', resticted = 'false' }) => {
   const token = useSelector(selectToken);
@@ -18,15 +19,16 @@ const PublicRoute = ({ redirectTo = '/contacts', resticted = 'false' }) => {
       ) : (
         <Suspense
           fallback={
-            <Vortex
-              visible={true}
-              height="200"
-              width="200"
-              ariaLabel="vortex-loading"
-              wrapperStyle={{}}
-              wrapperClass="vortex-wrapper"
-              colors={['red', 'green', 'blue', 'yellow', 'orange', 'purple']}
-            />
+            <Loader/>
+            // <Vortex
+            //   visible={true}
+            //   height="200"
+            //   width="200"
+            //   ariaLabel="vortex-loading"
+            //   wrapperStyle={{}}
+            //   wrapperClass="vortex-wrapper"
+            //   colors={['red', 'green', 'blue', 'yellow', 'orange', 'purple']}
+            // />
           }
         >
           <Outlet />
