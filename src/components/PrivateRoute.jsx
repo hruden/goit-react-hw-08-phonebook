@@ -2,7 +2,6 @@ import { Suspense } from 'react';
 import { useSelector } from 'react-redux';
 import { Navigate, Outlet } from 'react-router-dom';
 import { selectToken } from 'redux/auth/selectors';
-// import { Vortex } from 'react-loader-spinner';
 import Loader from './Loader/Loader';
 
 const PrivateRoute = ({ redirectTo }) => {
@@ -12,15 +11,6 @@ const PrivateRoute = ({ redirectTo }) => {
     <Suspense
       fallback={
         <Loader/>
-        // <Vortex
-        //   visible={true}
-        //   height="200"
-        //   width="200"
-        //   ariaLabel="vortex-loading"
-        //   wrapperStyle={{}}
-        //   wrapperClass="vortex-wrapper"
-        //   colors={['red', 'green', 'blue', 'yellow', 'orange', 'purple']}
-        // />
       }
     >
       <Outlet />
