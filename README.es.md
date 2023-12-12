@@ -1,105 +1,55 @@
-# React homework template
+PhoneBook Web App
+This web application "PhoneBook" is designed for convenient management of your contact list. You can add, delete, and edit contacts, as well as quickly find the necessary information using the search feature. Additionally, the app provides the capability for user registration. In this application, I have worked with react-bootstrap, react-icons, react-loader, and react-toastify.
 
-Este proyecto fue creado con la ayuda de
-[Create React App](https://github.com/facebook/create-react-app).
-[Consulte la documentación](https://facebook.github.io/create-react-app/docs/getting-started)
-para familiarizarse con las funciones opcionales y configurarlas.
+Key Features
+Adding Contacts:
 
-## Crear un repositorio desde una plantilla
+Add new contacts by providing details such as name and phone number
+Editing Contacts:
 
-Usa este repositorio de la organización GoIT como plantilla para crear el repositorio de tu proyecto. 
-Para hacer esto, haz clic en `«Use this template»` y selecciona la opción
-`«Create a new repository»`, tal como se muestra en la imagen.
+Modify contact information when changes or updates are necessary.
+Deleting Contacts:
 
-![Creating repo from a template step 1](./assets/template-step-1.png)
+Remove unnecessary or outdated contacts to maintain an up-to-date list.
+Searching Contacts:
 
-Para el siguiente paso deberás abrir la página para crear un nuevo repositorio. 
-Ponle nombre, asegúrate de que el repositorio sea público y haz clic en el botón
-`«Create repository from template»`.
+Utilize the search function to quickly find a contact by name.
+User Registration:
 
-![Creating repo from a template step 2](./assets/template-step-2.png)
+Register as a user to access additional features and personalized contact management.
+How to Use the App
+Adding Contacts:
 
-Ahora ya tienes un repositorio de proyecto personal, junto a una estructura de 
-archivos y carpetas del repositorio de plantillas. Luego trabaja con esto, así 
-como con cualquier otro repositorio personal, realiza una copia en tu computadora 
-y súbelo a GitHub.
+Click on the "Add Contact" button.
+Fill in the required fields in the form (name, phone number).
+Press "Save" to add a new contact.
+Editing Contacts:
 
-## Prepararse para el trabajo
+Click on the contact you wish to edit.
+Make changes in the respective fields.
+Press "Save" to update the contact.
+Deleting Contacts:
 
-1. Asegúrate de que la versión LTS de Node.js está instalada en tu computador.
-   [Descárguela e instálela](https://nodejs.org/en/) de ser necesario.
-2. Instala las dependencias base del proyecto con el comando `npm install`.
-3. Inicia el modo de desarrollo ejecutando el comando `npm start`.
-4. En tu navegador, ve a la dirección
-   [http://localhost:3000](http://localhost:3000). Esta página se recargará
-   automáticamente después de guardar los cambios en los archivos del proyecto.
+Click on the contact you want to delete.
+Press "Delete" and confirm your decision.
+Searching Contacts:
 
-## Implementación
+Use the search field, enter the name.
+The list of contacts will be filtered according to your query.
+User Registration:
 
-La versión de producción del proyecto se verificará, compilará y desplegará
-automáticamente en GitHub Pages, en la rama `gh-pages`, cada vez que se
-actualice la rama `main`. Por ejemplo, después de un Push directo o de una
-Pool-request aceptada. Para ello, edita el campo `homepage` del archivo
-`package.json`, sustituyendo `your_username` y `your_repo_name` por los tuyos
-propios, y envía los cambios a GitHub.
+Register with your details to unlock additional features.
+Access your personalized contact management system.
+Technical Requirements
+The application is based on web technologies and can be used in various web browsers. Ensure an internet connection for using the application.
 
-```json
-"homepage": "https://your_username.github.io/your_repo_name/"
-```
-
-A continuación, ve a la configuración del repositorio de GitHub (`Settings` >
-`Pages`) y selecciona distribuir la versión de producción de los archivos desde
-la carpeta `/root` de la rama `gh-pages`, si no se ha hecho automáticamente.
-
-![GitHub Pages settings](./assets/repo-settings.png)
-
-### Estado de la implantación
-
-El estado del último commit se indica con un icono junto al ID del commit.
-
-- **Color amarillo** - el proyecto está compilado e implementado.
-- **Color verde** - La implementación se completó con éxito.
-- **Color rojo** - Se ha producido un error durante la verificación, la
-  compilación o la implementación
-
-Se puede ver información de estado más detallada haciendo clic en el icono y en
-la ventana desplegable del enlace `Detalles`.
-
-![Deployment status](./assets/deploy-status.png)
-
-### Página activa
-
-Después de un tiempo, normalmente un par de minutos, la página real se puede ver
-en la dirección especificada en la propiedad `homepage`. Por ejemplo, aquí está
-el enlace a la versión activa de este repositorio
-[https://goitacademy.github.io/react-homework-template](https://goitacademy.github.io/react-homework-template).
-
-Si se abre una página en blanco, asegúrate de que no haya errores en la pestaña
-`Console` relacionados con rutas incorrectas de archivos CSS y JS del proyecto
-(**404**). Probablemente tienes un valor incorrecto para la propiedad `homepage`
-en el archivo `package.json`.
-
-### Enrutamiento
-
-Si la aplicación utiliza la librería `react-router-dom` para el enrutamiento, el
-componente `<BrowserRouter>` debe ser configurado adicionalmente pasando en la
-prop `basename`, el nombre exacto de tu repositorio. Las barras inclinadas al
-principio y al final de la cadena son obligatorias.
-
-```jsx
-<BrowserRouter basename="/your_repo_name/">
-  <App />
-</BrowserRouter>
-```
-
-## ¿Cómo funciona?
-
-![How it works](./assets/how-it-works.png)
-
-1. Después de cada push a la rama `main` del repositorio GitHub, se ejecuta un
-   script especial (GitHub Action) del archivo `.github/workflows/deploy.yml`.
-2. Todos los archivos del repositorio se copian en el servidor, donde el
-   proyecto se inicializa, se verifica y se compila antes de ser implementado.
-3. Si todos los pasos tienen éxito, la versión de producción compilada de los
-   archivos del proyecto se envía a la rama `gh-pages`. De lo contrario, el
-   registro de ejecución del script indicará cuál es el problema.
+Technical Details
+Framework: Developed using React.
+State Management: Utilizes Redux for state management.
+Styling: Styled with react-bootstrap.
+Additional Libraries: Includes react-icons, react-loader, react-toastify.
+How to Deploy
+Clone the repository to your computer.
+Run the command npm install to install the necessary packages.
+Run the command npm start to launch the local server.
+Enjoy managing your contact list conveniently with this PhoneBook web application!
